@@ -1,22 +1,19 @@
 package com.rangelcham.adventuremod;
 
+import com.rangelcham.adventuremod.abilities.dash.DashKeybind;
 import com.rangelcham.adventuremod.custom.ModCreativeTab;
 import com.rangelcham.adventuremod.custom.block.ModBlocks;
 import com.rangelcham.adventuremod.custom.effect.ModEffects;
 import com.rangelcham.adventuremod.custom.item.ModItems;
-import com.rangelcham.adventuremod.player.abilities.dash.DashKeybind;
-import com.rangelcham.adventuremod.player.stats.StatsKeyBind;
 import com.rangelcham.adventuremod.quests.QuestKeyBind;
-import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.world.item.CreativeModeTabs;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModContainer;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
-import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -42,7 +39,6 @@ public class AdventureMod
         ModCreativeTab.register(modEventBus);
 
         modEventBus.addListener(QuestKeyBind::register);
-        modEventBus.addListener(StatsKeyBind::register);
         modEventBus.addListener(DashKeybind::register);
         modEventBus.addListener(this::addCreative);
 
@@ -61,7 +57,7 @@ public class AdventureMod
 
     }
 
-    @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+    @EventBusSubscriber(modid = MODID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {

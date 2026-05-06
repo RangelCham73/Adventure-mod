@@ -1,7 +1,7 @@
 package com.rangelcham.adventuremod.custom.effect;
 
-import com.rangelcham.adventuremod.player.abilities.dash.DashHandler;
-import com.rangelcham.adventuremod.nbt.PlayerAbilityHandler;
+import com.rangelcham.adventuremod.abilities.dash.DashHandler;
+import com.rangelcham.adventuremod.nbt.PlayerEventHandler;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
@@ -17,7 +17,7 @@ public class DashEffect extends MobEffect {
     public boolean applyEffectTick(ServerLevel level, LivingEntity entity, int amplifier) {
         if (entity instanceof Player player) {
             DashHandler.unlockedDash = true;
-            PlayerAbilityHandler.saveAbilities(player);
+            PlayerEventHandler.save(player);
         }
         return super.applyEffectTick(level, entity, amplifier);
     }
