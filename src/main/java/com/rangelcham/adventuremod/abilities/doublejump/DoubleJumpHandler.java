@@ -1,4 +1,4 @@
-package com.rangelcham.adventuremod.player.abilities.doublejump;
+package com.rangelcham.adventuremod.abilities.doublejump;
 
 import com.rangelcham.adventuremod.AdventureMod;
 import net.minecraft.client.Minecraft;
