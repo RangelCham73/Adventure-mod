@@ -7,7 +7,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.BlockItem;
@@ -24,8 +23,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> DOUBLEJUMP_CRYSTAL = ITEMS.register(
             "jcrystal",
-            () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("adventuremod:jcrystal")))
+            name -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, name))
                     .component(
                         DataComponents.CONSUMABLE,
                         Consumable.builder()
@@ -44,8 +43,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> DASH_CRYSTAL = ITEMS.register(
             "dcrystal",
-            () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("adventuremod:dcrystal")))
+            name -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, name))
                     .component(
                         DataComponents.CONSUMABLE,
                         Consumable.builder()
@@ -64,8 +63,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> FUSION_SHARD = ITEMS.register(
             "fusion_shard",
-            () -> new Item(new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse("adventuremod:fusion_shard")))
+            name -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, name))
                     .component(
                             DataComponents.CONSUMABLE,
                             Consumable.builder()
@@ -83,12 +82,12 @@ public class ModItems {
     );
 
     public static final DeferredItem<Item> BLUECRYSTAL_BLOCK_ITEM = ITEMS.register("bluecrystal_block",
-            () -> new BlockItem(ModBlocks.BLUE_CRYSTAL.get(), new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse(AdventureMod.MODID+ ":bluecrystal_block")))));
+            name -> new BlockItem(ModBlocks.BLUE_CRYSTAL.get(), new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, name))));
 
     public static final DeferredItem<Item> GREENCRYSTAL_BLOCK_ITEM = ITEMS.register("greencrystal_block",
-            () -> new BlockItem(ModBlocks.GREEN_CRYSTAL.get(), new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.parse(AdventureMod.MODID+ ":greencrystal_block")))));
+            name -> new BlockItem(ModBlocks.GREEN_CRYSTAL.get(), new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, name))));
 
 
     public static void register(IEventBus eventBus) {
